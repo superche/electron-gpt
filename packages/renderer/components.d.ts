@@ -9,10 +9,16 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    ElButton: typeof import('element-plus/es')['ElButton']
+    ElDialog: typeof import('element-plus/es')['ElDialog']
     ElectronVersions: typeof import('./src/components/ElectronVersions.vue')['default']
+    PdfDialog: typeof import('./src/components/PdfDialog.vue')['default']
     ReactiveCounter: typeof import('./src/components/ReactiveCounter.vue')['default']
     ReactiveHash: typeof import('./src/components/ReactiveHash.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+  }
+  export interface ComponentCustomProperties {
+    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

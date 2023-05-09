@@ -38,7 +38,10 @@ const config = {
     outDir: 'dist',
     assetsDir: '.',
     rollupOptions: {
-      input: join(PACKAGE_ROOT, 'index.html'),
+      input: {
+        index: join(PACKAGE_ROOT, 'index.html'),
+        'pdf.worker': join(PROJECT_ROOT, 'node_modules/pdfjs-dist/build/pdf.worker.entry'),
+      },
     },
     emptyOutDir: true,
     reportCompressedSize: false,

@@ -1,5 +1,7 @@
+import PdfDialog from '/@/components/PdfDialog.vue';
 import './home.scss';
-import logo from '/assets/logo.svg';
+import logo from '/@/../assets/logo.svg';
+import ReActPdf from '/@/../assets/ReAct.pdf';
 
 export default {
   data() {
@@ -8,8 +10,11 @@ export default {
     };
   },
   mounted() {
-    (this as any).startAutoplay();
+    // (this as any).startAutoplay();
     document.title = '智能助理';
+
+    console.log('+++start load pdf');
+    (this as any).$refs.pdfDialog.getUrl(ReActPdf)
   },
   methods: {
     startAutoplay() {
@@ -69,6 +74,7 @@ export default {
             </div>
           </div>
         </div>
+        <PdfDialog ref="pdfDialog"></PdfDialog>
       </div>
     );
   },

@@ -205,9 +205,9 @@ import {
   getQuoteAPI,
   createShareAPI,
 } from '/@/service/api';
-import createConversationImage from '/assets/assistant_createconversation.svg';
-import chatIcon from '/assets/assistant_chaticon.svg';
-import darkmodeImg from '/assets/assistant_darkmode.svg';
+import createConversationImage from '/@/../assets/assistant_createconversation.svg';
+import chatIcon from '/@/../assets/assistant_chaticon.svg';
+import darkmodeImg from '/@/../assets/assistant_darkmode.svg';
 
 // Props & Emits
 export interface IProps {
