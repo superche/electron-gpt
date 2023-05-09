@@ -4,7 +4,11 @@ import * as VueRouter from 'vue-router';
 const constantRouterMap = [
   {
     path: '/',
-    component: () => import('/@/pages/home'),
+    component: () => import('/@/pages/home.vue'),
+  },
+  {
+    path: '/pdf-viewer',
+    component: () => import('/@/pages/pdf-viewer.vue'),
   },
   // {
   //   path: '/assistant',
@@ -43,7 +47,7 @@ const constantRouterMap = [
 // };
 
 const router = VueRouter.createRouter({
-  history: VueRouter.createWebHashHistory(),
+  history: VueRouter.createWebHistory(),//.createWebHashHistory(),
   routes: constantRouterMap, // short for `routes: routes`
 });
 

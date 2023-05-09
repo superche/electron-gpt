@@ -1,3 +1,64 @@
+<template>
+  <div
+    id="app"
+    class="dark"
+  >
+    <div class="app-header">
+      <div class="outer-wrapper">
+        <div class="home-page">
+          <div class="home-header">
+            <a
+              class="header-item"
+              href="/"
+            >
+              <img
+                class="logo"
+                :src="logo"
+                alt=""
+              />
+            </a>
+            <a
+              class="header-item"
+              href="/assistant"
+            >智能助理</a>
+            <a
+              class="header-item"
+              href="/pdf-viewer"
+            >文档中心</a>
+            <a
+              class="header-item"
+              href="/prompt"
+            >  Prompt Kit  </a>
+            <a
+              class="header-item"
+              href="/console/requirement/list"
+            >控制台</a>
+          </div>
+          <div class="app-content">
+            <router-view></router-view>
+          </div>
+        </div>
+        <div class="speech-footer footer">
+          <div class="footer-content">
+            <div class="left-part">
+              <div class="link-part item-part">
+                <div class="part-title"> 友情链接 </div>
+              </div>
+              <div class="contact-part item-part">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import logo from '/@/../assets/logo.svg';
+</script>
+
+<style lang="scss">
 .home-page, .home-page-2 {
   width: 100vw;
   min-height: 100vh;
@@ -29,124 +90,6 @@
   }
   .home-content {
     position: relative;
-    .home-inner-img {
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      background: rgba(0,0,0,0.9);
-      background-image: url('/assets/home_innerimg.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-    }
-    .home-video {
-      width: 100vw;
-      height: 100vh;
-      pointer-events: none;
-      background: rgba(0,0,0,0.9);
-      video {
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-      }
-    }
-    .home-inner {
-      padding: 15% 0 0 15%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 100%;
-      height: 100%;
-      transform: translateX(-50%);
-      background: rgba(30, 28, 27, 0.7);
-      .inner-card {
-        display: inline-block;
-        font-size: 60px;
-        font-weight: bold;
-        line-height: 0px;
-
-      }
-      .inner-bottom{
-        display: inline-block;
-        padding: 50px 0px;
-        font-size: 20px;
-        line-height: 50px;
-        .fst{
-          font-weight: bold;
-        }
-      }
-      .inner-link {
-        .first,.second {
-          display: inline-block;
-          font-size: 16px;
-          margin-right: 54px;
-          text-decoration: none;
-          box-sizing: border-box;
-          color: #fff;
-        }
-        .first {
-          padding: 4px 12px;
-          border: 1px solid #fff;
-          &:hover {
-            background: rgba(255, 255, 255, 0.85);
-            color: #000;
-          }
-        }
-        .second {
-          padding: 2px 0px;
-          border-bottom: 1px solid #fff;
-          &:hover {
-            border-bottom: 1px solid #666;
-          }
-        }
-      }
-    }
-    .control-button {
-      cursor: pointer;
-      position: absolute;
-      right: 40px;
-      bottom: 30px;
-      padding: 8px 18px;
-      z-index: 10;
-      font-weight: bold;
-      &:hover {
-        background: #fff;
-        color: #333;
-      }
-    }
-  }
-}
-.home-page-2 {
-  display: flex;
-  background: #000;
-  .img-wrapper {
-    display: flex;
-    flex: 1 0 40%;
-    justify-content: center;
-    align-items: center;
-    img {
-      display: inline-block;
-      width: 80%;
-    }
-  }
-  .p-wrapper {
-    flex: 1 0 60%;
-    padding: 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    .inner-p {
-      line-height: 2.2;
-      text-align: left;
-      font-size: 16px;
-    }
-    .inner-t{
-      font-size: 26px;
-      line-height: 3;
-      font-weight: bold;
-    }
   }
 }
 .speech-footer {
@@ -248,3 +191,5 @@
   line-height: 20pt;
 }
 
+
+</style>
