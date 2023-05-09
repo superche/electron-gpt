@@ -1,8 +1,5 @@
 <template>
-  <div
-    id="app"
-    class="dark"
-  >
+  <div class="dark">
     <div class="app-header">
       <div class="outer-wrapper">
         <div class="home-page">
@@ -47,15 +44,31 @@
               <div class="contact-part item-part">
               </div>
             </div>
+            <div class="right-part">
+              <el-button
+                id="diagnosis-dialog-button"
+                type="text"
+                @click="showDiagnosis = true"
+              >
+                问题诊断
+              </el-button>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <el-dialog v-model="showDiagnosis">
+      <electron-versions></electron-versions>
+    </el-dialog>
   </div>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import logo from '/@/../assets/logo.svg';
+import ElectronVersions from '/@/components/ElectronVersions.vue';
+
+const showDiagnosis = ref(false);
 </script>
 
 <style lang="scss">
