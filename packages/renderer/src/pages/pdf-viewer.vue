@@ -3,7 +3,7 @@
     <div class="home-content">
       <div class="home-inner-img" />
       <div class="home-inner">
-        <span class="inner-card">文档中心</span>
+        <span class="inner-card">PDF</span>
         <div class="inner-bottom">
           <span>提升工作效率，创造更多价值，让每个人都享受高效、有趣、充实的科技生活</span>
         </div>

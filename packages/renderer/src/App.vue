@@ -21,7 +21,7 @@
             <a
               class="header-item"
               href="/pdf-viewer"
-            >文档中心</a>
+            >PDF</a>
             <a
               class="header-item"
               href="/prompt"

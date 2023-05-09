@@ -55,6 +55,7 @@ const page_count = ref(0); // 总页数
 // const maxscale = ref(2); // 最大放大倍数
 // const minscale = ref(0.8); // 最小放大倍数
 const canvasData = ref<number[]>([]);
+const textData = ref<string[]>([]);
 const pdfjsView = ref(false);
 const pdfurl = ref<any>(null);
 const loading = ref(false);
@@ -93,6 +94,15 @@ function renderPage(num: number) {
   page_num.value = pageNum.value;
 }
 
+function extractTextData(num: number) {
+  pdfDoc.getPage(num).then((page: any) => {
+    // Memory PDF page into text
+    page.getTextContent().then(({ items }: { items: any[] }) => {
+      textData.value[num] = [...items.map((item: any) => item.str)].join(' ');
+    });
+  });
+}
+
 function getUrl(url: any) {
   pdfurl.value = url;
   pdfjsView.value = true;
@@ -118,8 +128,13 @@ function showPDf() {
     page_count.value = pdfDoc.numPages;
     for (let i = 0; i < page_count.value; i += 1) {
       renderPage(i + 1);
+      extractTextData(i + 1);
     }
     loading.value = false;
+
+    setTimeout(() => {
+      console.log(textData.value.join(' '));
+    }, 1000);
   });
 }
 </script>
