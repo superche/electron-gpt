@@ -2,6 +2,8 @@ import {app} from 'electron';
 import './security-restrictions';
 import {restoreOrCreateWindow} from '/@/mainWindow';
 import {platform} from 'node:process';
+import '/@/fileManager';
+import {registerFileProtocol} from '/@/protocol';
 
 /**
  * Prevent electron from running multiple instances.
@@ -38,7 +40,8 @@ app.on('activate', restoreOrCreateWindow);
 app
   .whenReady()
   .then(restoreOrCreateWindow)
-  .catch(e => console.error('Failed create window:', e));
+  .catch(e => console.error('Failed create window:', e))
+  .then(registerFileProtocol);
 
 /**
  * Install Vue.js or any other extension in development mode only.

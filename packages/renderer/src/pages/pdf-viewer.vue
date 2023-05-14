@@ -15,13 +15,17 @@
 
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
+import { selectFile } from '#preload';
 import PdfDialog from '/@/components/PdfDialog.vue';
-import ReActPdf from '/@/../assets/ReAct.pdf';
 
 const pdfDialog = ref<any>(null);
 
-onMounted(() => {
-  pdfDialog.value?.getUrl(ReActPdf);
+onMounted(async () => {
+  const filepath = await selectFile();
+  if (filepath) {
+    const fileurl = `gptfile://${filepath}`;
+    pdfDialog.value?.getUrl(fileurl);
+  }
 });
 </script>
 
